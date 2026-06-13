@@ -1,0 +1,8 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1781305839
+export_presets.cfg::TextFile::-1::1781302366::0::1::::<><><>0<>0<><>::
+icon.svg::CompressedTexture2D::1129182306148746382::1781302366::1781302471::1::::<><><>0<>0<>78b2053a89f0c0c5314c2df7114afce5<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://scene/::1781304491
+main.tscn::PackedScene::4710132535170390083::1781304491::0::1::::<><><>0<>0<><>::uid://dp8w3aita72mm::::res://script/main.gd
+::res://script/::1781304491
+main.gd::GDScript::8281604960826958576::1781304491::0::1::::<>Control<><>0<>0<><>::
