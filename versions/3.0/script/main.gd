@@ -43,7 +43,7 @@ func check_uploaded_file(file):
 	items.append(file)
 	number_of_item = items.size()
 	print("Dropped:", file)
-	print(number_of_item, "\n"+str(items))
+	print("Index: ", number_of_item,"\n","File: " ,  str(items))
 	if number_of_item >= 1:
 		help_text.visible = false
 		item_list.visible = true
