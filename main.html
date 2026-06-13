@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LocalConvert</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,sans-serif;
+}
+
+body{
+    background:#0b1020;
+    color:#fff;
+    height:100vh;
+    padding:20px;
+}
+
+.window{
+    height:100%;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+    overflow:hidden;
+    display:flex;
+    backdrop-filter:blur(10px);
+}
+
+.sidebar{
+    width:300px;
+    background:rgba(255,255,255,.03);
+    padding:20px;
+    border-right:1px solid rgba(255,255,255,.05);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    margin-bottom:30px;
+}
+
+.card{
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.05);
+    border-radius:16px;
+    padding:18px;
+    margin-bottom:20px;
+}
+
+.card h3{
+    margin-bottom:15px;
+}
+
+.menu-item{
+    padding:14px;
+    border-radius:10px;
+    margin-bottom:10px;
+    cursor:pointer;
+}
+
+.menu-item.active{
+    background:#7c4dff33;
+    border-left:4px solid #8f5cff;
+}
+
+.select{
+    background:#13192c;
+    border:1px solid rgba(255,255,255,.08);
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:12px;
+}
+
+.main{
+    flex:1;
+    padding:25px;
+}
+
+.top-buttons{
+    display:flex;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.btn{
+    padding:14px 24px;
+    border-radius:12px;
+    border:none;
+    color:white;
+    background:#7c4dff;
+}
+
+.btn.secondary{
+    background:#1a2239;
+}
+
+.drop-zone{
+    border:2px dashed #8f5cff;
+    border-radius:20px;
+    height:220px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    margin-bottom:25px;
+}
+
+.drop-zone h1{
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.drop-zone p{
+    color:#aaa;
+}
+
+.queue{
+    background:rgba(255,255,255,.03);
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.queue-header{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    padding:20px;
+    border-bottom:1px solid rgba(255,255,255,.05);
+    color:#aaa;
+}
+
+.row{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    padding:20px;
+    align-items:center;
+    border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.file{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.thumb{
+    width:70px;
+    height:50px;
+    border-radius:10px;
+    background:#222;
+}
+
+.status{
+    color:#9d73ff;
+}
+
+.progress{
+    height:10px;
+    background:#222;
+    border-radius:999px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    width:45%;
+    height:100%;
+    background:#8f5cff;
+}
+
+.footer{
+    margin-top:25px;
+}
+
+.big-progress{
+    height:14px;
+    background:#222;
+    border-radius:999px;
+    overflow:hidden;
+    margin-top:10px;
+}
+
+.big-progress-fill{
+    width:15%;
+    height:100%;
+    background:#8f5cff;
+}
+
+.bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:25px;
+}
+
+.output-path{
+    flex:1;
+    background:#13192c;
+    padding:14px;
+    border-radius:10px;
+    margin-right:15px;
+}
+
+.cancel{
+    background:#e44;
+    color:white;
+    border:none;
+    padding:14px 40px;
+    border-radius:12px;
+}
+</style>
+</head>
+<body>
+
+<div class="window">
+
+    <div class="sidebar">
+
+        <div class="logo">LocalConvert</div>
+
+        <div class="card">
+            <div class="menu-item active">Convert</div>
+            <div class="menu-item">History</div>
+            <div class="menu-item">Settings</div>
+        </div>
+
+        <div class="card">
+            <h3>Output Format</h3>
+
+            <div class="select">Video → MP4</div>
+            <div class="select">Audio → MP3</div>
+            <div class="select">Image → JPG</div>
+        </div>
+
+        <div class="card">
+            <h3>About</h3>
+            <p>Unlimited. Private. Offline.</p>
+            <br>
+            <p>Powered by FFmpeg</p>
+        </div>
+
+    </div>
+
+    <div class="main">
+
+        <div class="top-buttons">
+            <button class="btn">+ Add Files</button>
+            <button class="btn secondary">Add Folder</button>
+        </div>
+
+        <div class="drop-zone">
+            <h1>⬆</h1>
+            <h2>Drag & Drop Files Here</h2>
+            <p>You can add multiple files at once</p>
+        </div>
+
+        <div class="queue">
+
+            <div class="queue-header">
+                <div>Queue</div>
+                <div>Output</div>
+                <div>Status</div>
+                <div>Progress</div>
+            </div>
+
+            <div class="row">
+                <div class="file">
+                    <div class="thumb"></div>
+                    <div>video1.mkv</div>
+                </div>
+                <div>video1.mp4</div>
+                <div class="status">Converting</div>
+                <div class="progress">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="file">
+                    <div class="thumb"></div>
+                    <div>video2.mov</div>
+                </div>
+                <div>video2.mp4</div>
+                <div>Waiting</div>
+                <div class="progress"></div>
+            </div>
+
+            <div class="row">
+                <div class="file">
+                    <div class="thumb"></div>
+                    <div>audio.wav</div>
+                </div>
+                <div>audio.mp3</div>
+                <div>Waiting</div>
+                <div class="progress"></div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <div>1 of 3 converting</div>
+
+            <div class="big-progress">
+                <div class="big-progress-fill"></div>
+            </div>
+        </div>
+
+        <div class="bottom">
+
+            <div class="output-path">
+                C:/Users/User/Videos/Converted
+            </div>
+
+            <button class="cancel">
+                Cancel All
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
