@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://b8dvgvckkvjtr"]
+
+[ext_resource type="Script" uid="uid://dp8w3aita72mm" path="res://script/main.gd" id="1_itxqv"]
+
+[node name="Control" type="Control" unique_id=53882521]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_itxqv")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=675466285]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="help_text" type="Label" parent="." unique_id=912993582]
+visible = false
+layout_mode = 0
+offset_left = 233.0
+offset_top = 229.0
+offset_right = 842.0
+offset_bottom = 487.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Drag-and-Drop files here:"
+
+[node name="item_text" type="Label" parent="." unique_id=1945447137]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 128.0
+offset_top = -257.0
+offset_right = 737.0
+offset_bottom = 1.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Items:"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=2104435582]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 145.0
+offset_right = 958.0
+offset_bottom = 526.0
+
+[node name="item_list" type="Label" parent="ScrollContainer" unique_id=604554344]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "files:"
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=674414657]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -301.0
+offset_top = -113.0
+offset_right = 301.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+placeholder_text = "Write command here:"
+emoji_menu_enabled = false
+drag_and_drop_selection_enabled = false

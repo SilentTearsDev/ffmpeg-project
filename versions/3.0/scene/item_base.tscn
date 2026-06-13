@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://7h46x0nrsca3"]
+
+[ext_resource type="Script" uid="uid://cc2csjtonafn" path="res://script/item_base.gd" id="1_umqji"]
+
+[node name="ItemBase" type="Control" unique_id=1174015195]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_umqji")
+
+[node name="Container" type="HSplitContainer" parent="." unique_id=1473069523]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -561.0
+offset_bottom = -520.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Container" unique_id=1243930318]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Container/HBoxContainer" unique_id=354191391]
+layout_mode = 2
+text = "asdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+
+[node name="HBoxContainer2" type="VBoxContainer" parent="Container" unique_id=1398023264]
+layout_mode = 2

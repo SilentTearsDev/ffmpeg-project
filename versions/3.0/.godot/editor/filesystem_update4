@@ -1,0 +1,5 @@
+res://scene/main.tscn
+res://script/item_base_resource.gd
+res://script/item_base.gd
+res://scene/item_base.tscn
+res://script/main.gd
