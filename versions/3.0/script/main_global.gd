@@ -1,6 +1,7 @@
 extends Node
 
-var items : Array[String] = []
+signal item_list_changed
+var items : Array[PackedStringArray] = []
 var item_index : int = 0
 
 func _ready() -> void:
@@ -12,7 +13,11 @@ func _process(_delta: float) -> void:
 
 func sys_check():
 	var op_sys = OS.get_name()
-	print("Your Operation System is: ", op_sys)
+	if op_sys == "Windows":
+		print_rich("Your Operation System: ","[color=yellow][b]"+ op_sys + "[/b][/color]")
+	else:
+		print_rich("Your Operation System: ","[color=blue][b]" + op_sys + "[/b][/color]")
+
 	#await get_tree().create_timer(0.5).timeout
 	var output = []
 	var ffmpeg_is_working = OS.execute("ffmpeg", ["-version"], output)
@@ -23,8 +28,15 @@ func sys_check():
 
 func add_item(multi_items : PackedStringArray):
 	for item in multi_items:
-		items.append(str(multi_items).get_file())
+		items.append(multi_items)
 		item_index = items.size()
+		emit_signal("item_list_changed")
 	#var same_multi_selected_item
 	await get_tree().create_timer(0.5).timeout
-	print("item index: ", item_index, " uploaded file(s): " ,  items)#same_multi_selected_item
+	print("item index: ", item_index, "\n", "uploaded file(s): " , items)#same_multi_selected_item
+
+func delete():
+	items = []
+	item_index = items.size()
+	print("item index: ", item_index, "\n", "uploaded file(s): " , items)#same_multi_selected_item
+	emit_signal("item_list_changed")

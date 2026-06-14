@@ -22,27 +22,26 @@ grow_vertical = 2
 
 [node name="item_text" type="Label" parent="." unique_id=1945447137]
 layout_mode = 0
-offset_left = 210.0
-offset_top = 145.0
-offset_right = 1060.0
-offset_bottom = 214.0
-grow_vertical = 2
+offset_left = 37.0
+offset_top = 20.0
+offset_right = 887.0
+offset_bottom = 89.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "Items:"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=2104435582]
 layout_mode = 0
-offset_left = 661.0
-offset_top = 73.0
-offset_right = 1016.0
-offset_bottom = 359.0
+offset_left = 37.0
+offset_top = 104.0
+offset_right = 37.0
+offset_bottom = 104.0
 
 [node name="item_list" type="Label" parent="ScrollContainer" unique_id=604554344]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
-text = "asdadasdsadasdbsahdbsadsada"
+text = "asddddddddddddddddddddddddddddddddddd"
 
 [node name="FileDialog" type="FileDialog" parent="." unique_id=2124451254]
 oversampling_override = 1.0
@@ -64,6 +63,17 @@ theme_override_font_sizes/font_size = 20
 text = "Convert file"
 icon = ExtResource("2_v0l8b")
 
+[node name="Delete_list" type="Button" parent="." unique_id=1376613413]
+layout_mode = 0
+offset_left = 749.0
+offset_top = 489.0
+offset_right = 1001.0
+offset_bottom = 625.0
+theme_override_font_sizes/font_size = 20
+text = "Delete list"
+icon = ExtResource("2_v0l8b")
+
 [connection signal="files_dropped" from="FileDialog" to="." method="_on_file_dialog_files_dropped"]
 [connection signal="files_selected" from="FileDialog" to="." method="_on_file_dialog_files_selected"]
 [connection signal="pressed" from="Open_folder_button" to="." method="_on_open_folder_button_pressed"]
+[connection signal="pressed" from="Delete_list" to="." method="_on_delete_list_pressed"]
