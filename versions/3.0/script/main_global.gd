@@ -38,5 +38,5 @@ func add_item(multi_items : PackedStringArray):
 func delete():
 	items = []
 	item_index = items.size()
-	print("item index: ", item_index, "\n", "uploaded file(s): " , items)#same_multi_selected_item
+	#print("item index: ", item_index, "\n", "uploaded file(s): " , items)#same_multi_selected_item
 	emit_signal("item_list_changed")
