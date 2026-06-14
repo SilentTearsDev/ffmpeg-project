@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://7h46x0nrsca3"]
 
-[ext_resource type="Script" uid="uid://cc2csjtonafn" path="res://script/item_base.gd" id="1_umqji"]
+[sub_resource type="GDScript" id="GDScript_42pai"]
+script/source = "extends Control
+"
 
 [node name="ItemBase" type="Control" unique_id=1174015195]
 layout_mode = 3
@@ -9,7 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_umqji")
+script = SubResource("GDScript_42pai")
 
 [node name="Container" type="HSplitContainer" parent="." unique_id=1473069523]
 layout_mode = 1

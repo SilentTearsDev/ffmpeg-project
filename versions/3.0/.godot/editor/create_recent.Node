@@ -1,7 +1,8 @@
 Button
+VBoxContainer
+FileDialog
 TextEdit
 ScrollContainer
-VBoxContainer
 HBoxContainer
 HSplitContainer
 Container

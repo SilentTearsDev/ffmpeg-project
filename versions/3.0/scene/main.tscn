@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b8dvgvckkvjtr"]
 
 [ext_resource type="Script" uid="uid://dp8w3aita72mm" path="res://script/main.gd" id="1_itxqv"]
+[ext_resource type="Texture2D" uid="uid://qc8p5s2vlfow" path="res://icon.svg" id="2_v0l8b"]
 
 [node name="Control" type="Control" unique_id=53882521]
 layout_mode = 3
@@ -19,26 +20,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="help_text" type="Label" parent="." unique_id=912993582]
-visible = false
-layout_mode = 0
-offset_left = 233.0
-offset_top = 229.0
-offset_right = 842.0
-offset_bottom = 487.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
-text = "Drag-and-Drop files here:"
-
 [node name="item_text" type="Label" parent="." unique_id=1945447137]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 128.0
-offset_top = -257.0
-offset_right = 737.0
-offset_bottom = 1.0
+layout_mode = 0
+offset_left = 210.0
+offset_top = 145.0
+offset_right = 1060.0
+offset_bottom = 214.0
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
@@ -46,13 +33,37 @@ text = "Items:"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=2104435582]
 layout_mode = 0
-offset_left = 210.0
-offset_top = 145.0
-offset_right = 958.0
-offset_bottom = 526.0
+offset_left = 661.0
+offset_top = 73.0
+offset_right = 1016.0
+offset_bottom = 359.0
 
 [node name="item_list" type="Label" parent="ScrollContainer" unique_id=604554344]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
-text = "files:"
+text = "asdadasdsadasdbsahdbsadsada"
+
+[node name="FileDialog" type="FileDialog" parent="." unique_id=2124451254]
+oversampling_override = 1.0
+title = "Open File(s)"
+position = Vector2i(0, 36)
+ok_button_text = "Select"
+dialog_hide_on_ok = true
+file_mode = 1
+access = 2
+show_hidden_files = true
+
+[node name="Open_folder_button" type="Button" parent="." unique_id=2138839429]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 501.0
+offset_right = 308.0
+offset_bottom = 637.0
+theme_override_font_sizes/font_size = 20
+text = "Convert file"
+icon = ExtResource("2_v0l8b")
+
+[connection signal="files_dropped" from="FileDialog" to="." method="_on_file_dialog_files_dropped"]
+[connection signal="files_selected" from="FileDialog" to="." method="_on_file_dialog_files_selected"]
+[connection signal="pressed" from="Open_folder_button" to="." method="_on_open_folder_button_pressed"]
