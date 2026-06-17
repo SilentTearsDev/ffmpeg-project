@@ -1,0 +1,57 @@
+/* Dark theme for Media Salvager */
+QWidget {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: "Segoe UI", "Roboto", sans-serif;
+    font-size: 11pt;
+}
+QPushButton {
+    background-color: #1f1f1f;
+    border: 1px solid #3c3c3c;
+    padding: 8px;
+}
+QPushButton:hover {
+    background-color: #333333;
+}
+QLineEdit, QPlainTextEdit, QTextEdit, QComboBox {
+    background-color: #1b1b1b;
+    border: 1px solid #3c3c3c;
+    color: #e0e0e0;
+}
+QTableWidget {
+    background-color: #181818;
+    gridline-color: #2e2e2e;
+}
+QHeaderView::section {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+    border: 1px solid #3c3c3c;
+}
+QProgressBar {
+    background-color: #1d1d1d;
+    border: 1px solid #3c3c3c;
+    text-align: center;
+}
+QProgressBar::chunk {
+    background-color: #3a99ff;
+}
+QGroupBox {
+    border: 1px solid #3c3c3c;
+    margin-top: 8px;
+}
+QGroupBox:title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 3px 0 3px;
+}
+QScrollBar:vertical {
+    background: #181818;
+    width: 12px;
+}
+QScrollBar::handle:vertical {
+    background: #333333;
+    min-height: 20px;
+}
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}
