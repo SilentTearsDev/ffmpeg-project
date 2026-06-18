@@ -8,7 +8,17 @@ set -euo pipefail
 APP_NAME=${APP_NAME:-MediaSalvager}
 VENV=${VENV:-.venv}
 PYTHON=${PYTHON:-python3}
-MODE=${1:-appimage}
+# Determine build mode. If a mode arg is provided use it; otherwise
+# prefer an 'arch' mode when running on Arch/Omarchy, else default to appimage.
+if [ -n "${1:-}" ]; then
+  MODE="$1"
+else
+  if grep -qi '^ID=arch' /etc/os-release 2>/dev/null || grep -qi 'omarchy' /etc/os-release 2>/dev/null; then
+    MODE=arch
+  else
+    MODE=appimage
+  fi
+fi
 ADD_DATA="media_salvager/assets:media_salvager/assets"
 
 echo "Build mode: ${MODE}"
@@ -92,6 +102,23 @@ EOF
     ./"$LINUXDEPLOYQT" "$BINARY_PATH" -appimage -qmldir=.
 
     echo "AppImage build finished (look for a .AppImage file)"
+    ;;
+
+  arch)
+    # Build a tarball suitable for Arch/Omarchy packaging (creates dist/<APP_NAME> and a tar.gz)
+    run_pyinstaller "--onedir --windowed"
+
+    APPDIR="dist/${APP_NAME}"
+
+    if [ ! -d "$APPDIR" ]; then
+      echo "ERROR: Expected AppDir at $APPDIR not found" >&2
+      exit 1
+    fi
+
+    TARBALL="dist/${APP_NAME}-arch.tar.gz"
+    echo "Creating tarball $TARBALL"
+    tar -C "dist" -czf "$TARBALL" "${APP_NAME}"
+    echo "Arch package created: $TARBALL"
     ;;
 
   *)
